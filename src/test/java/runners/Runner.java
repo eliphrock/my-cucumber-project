@@ -6,8 +6,16 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        features = "./src/test/resources/feautures/first_feature_file.feature",//PATH OF FEATURES FOLDER
-        glue = "stepdefinitions"//PATH OF STEP DEFINITIONS
+        features = "./src/test/resources/feautures",//PATH OF FEATURES FOLDER
+        glue = "stepdefinitions",
+        dryRun = false,
+        tags = "@scenario_outline"
 )
 public class Runner {
 }
+/*
+ features = "./src/test/resources/features",//PATH OF FEATURES FOLDER
+ glue = "stepdefinitions", //PATH OF STEP DEFINITIONS
+ dryRun = false //IF dryRun = true. RUN DRY. JUST GIVE ME THE MISSING STEP DEFINITIONS. DON'T RUN THE TEST CASES.
+ dryRun= false when we are doing test execution. dryRun=true when we are generation missing step definitions
+*/
