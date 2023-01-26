@@ -1,4 +1,4 @@
-@data_tables1
+@data_tables_1
 Feature: data_tables
   Scenario: customer_login
     Given user is on "https://www.bluerentalcars.com/login" page

@@ -13,11 +13,13 @@ import org.junit.runner.RunWith;
                 "junit:target/xml-report/cucumber.xml"
         },
         monochrome=true,
-        features = "./src/test/resources/feautures",//PATH OF FEATURES FOLDER
-        glue = "stepdefinitions",
-        dryRun = true,
-        tags = "@data_tables_1"
+        features = "./src/test/resources/feautures",
+        glue = {"stepdefinitions","hooks"},
+        dryRun = false,
+        tags = "@MedunnaRoom"
+
 )
+
 public class Runner {
 }
 /*
