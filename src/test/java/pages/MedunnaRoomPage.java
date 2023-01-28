@@ -7,9 +7,10 @@ import utilities.Driver;
 
 public class MedunnaRoomPage {
 
-    public MedunnaRoomPage(){
-        PageFactory.initElements(Driver.getDriver(),this);
+    public MedunnaRoomPage() {
+        PageFactory.initElements(Driver.getDriver(), this);
     }
+
     @FindBy(id = "jh-create-entity")
     public WebElement createANewRoomButton;
 
