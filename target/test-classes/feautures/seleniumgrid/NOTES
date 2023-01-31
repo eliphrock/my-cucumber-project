@@ -1,0 +1,77 @@
+*********SELENIUM GRID NOTES***********
+LINK: https://www.selenium.dev/documentation/grid/getting_started/
+
+STEPS:
+1.Create a folder on the Desktop : SeleniumServer
+2.*Download Selenium Server: https://www.selenium.dev/downloads/
+  *Download Chrome Driver : https://shromedriver.chromium.org/downloads
+  *Download FireFox Driver : https://www.github.com/mozilla/geckodriver/releases
+NOTE: Make sure the selenium server and drivers are UNZIPPED and in the SeleniumServer folder
+3.Open your terminal or cmd and change the directory to SeleniumServer folder
+MAC : Terminal
+WINDOWS: CMD . Search>CMD>Select Command Prompt
+To switch the directory use: cd/users/elifkayaatsiz/Desktop/SeleniumServer
+4.Run the standalone server
+java -jar selenium-server-4.8.0.jar standalone
+5.Then you should see message: Started Selenium Standalone 4.8.0 (revision 267030adea): http://192.168.0.14:4444
+*******Note: So far we completed the set up and run selenium grid
+*******Now we will create a test case and run the test case on grid
+6.we will design our test cases in cucumber.
+*****Runner for selenium grid
+
+****feature file
+Feature: grid_feature
+
+  @grid_chrome
+  Scenario: TC01_running_tests_on_Chrome
+    Given user is on the application_url using chrome
+    Then verify the page title contains "Techpro Education"
+
+ ****runner class
+    package runners;
+
+    import io.cucumber.junit.Cucumber;
+    import io.cucumber.junit.CucumberOptions;
+    import org.junit.runner.RunWith;
+
+    @RunWith(Cucumber.class)
+    @CucumberOptions(
+            plugin = {
+                    "pretty",
+                    "html:target/default-cucumber-reports.html",
+                    "json:target/json-reports/cucumber.json",
+                    "junit:target/xml-report/cucumber.xml",
+                    "rerun:target/faileRerun.txt"
+            },
+            monochrome=true,
+            features = "./src/test/resources/feautures",     //Path of features folder
+            glue = {"stepdefinitions"},      //Path of step definitions  //they are in sibling file, so I write just stepdefinitions
+            dryRun = false,
+            tags = "@grid_chrome"       //dont run all of the features, just run scenario which has @....
+
+    )
+    public class GridRunner {
+    }
+
+
+****generate step definitions
+
+package stepdefinitions;
+
+import io.cucumber.java.en.Given;
+import io.cucumber.java.en.Then;
+
+public class GridStepDefinitions {
+    @Given("user is on the application_url using chrome")
+    public void user_is_on_the_application_url_using_chrome() {
+
+    }
+    @Then("verify the page title contains {string}")
+    public void verify_the_page_title_contains(String string) {
+
+    }
+    @Then("close the remote driver")
+    public void close_the_remote_driver() {
+    }
+}
+*** create the java code in the step definition to run test on grid

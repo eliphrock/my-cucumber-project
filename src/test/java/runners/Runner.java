@@ -10,13 +10,14 @@ import org.junit.runner.RunWith;
                 "pretty",
                 "html:target/default-cucumber-reports.html",
                 "json:target/json-reports/cucumber.json",
-                "junit:target/xml-report/cucumber.xml"
+                "junit:target/xml-report/cucumber.xml",
+                "rerun:target/faileRerun.txt"
         },
         monochrome=true,
         features = "./src/test/resources/feautures",     //Path of features folder
         glue = {"stepdefinitions", "hooks"},      //Path of step definitions  //they are in sibling file, so I write just stepdefinitions
         dryRun = false,
-        tags = "@admin_excel"       //dont run all of the features, just run scenario which has @....
+        tags = "@google_search"       //dont run all of the features, just run scenario which has @....
 
 )
 

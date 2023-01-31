@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="Cucumber" time="25.504" tests="1" skipped="0" failures="0" errors="0">
-<testcase classname="excel_login_feature" name="TC_admin_credentials_test" time="25.254">
+<testsuite name="Cucumber" time="14.017" tests="2" skipped="0" failures="0" errors="0">
+<testcase classname="grid_feature" name="TC01_running_tests_on_Chrome" time="7.152">
 <system-out><![CDATA[
-Given user tries to login as "admin_info"...................................passed
-Then verify the application login is successful.............................passed
-Then capture the screenshot.................................................passed
-Then close the application..................................................passed
+Given user is on the application_url using chrome...........................passed
+Then verify the page title contains "Techpro Education".....................passed
+Then close the remote driver................................................passed
+]]></system-out>
+</testcase>
+<testcase classname="grid_feature" name="TC02_running_tests_on_Firefox" time="6.511">
+<system-out><![CDATA[
+Given user is on the application_url using firefox..........................passed
+Then verify the page title contains "Techpro Education".....................passed
+Then close the remote driver................................................passed
 ]]></system-out>
 </testcase>
 </testsuite>
